@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-21 14:20:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsWxReceivedMessage" table="wls_wx_received_message">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="toUsername" type="string">
+            <column name="to_username" length="50" />
+        </property>
+        <property name="fromUsername" type="string">
+            <column name="from_username" length="50" />
+        </property>
+        <property name="msgCreateTime" type="timestamp">
+            <column name="msg_create_time" length="19" />
+        </property>
+        <property name="msgType" type="string">
+            <column name="msg_type" length="45" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="1024" />
+        </property>
+        <property name="msgId" type="string">
+            <column name="msg_id" length="16777215" />
+        </property>
+        <property name="picUrl" type="string">
+            <column name="pic_url" length="1024" />
+        </property>
+        <property name="mediaId" type="string">
+            <column name="media_id" length="45" />
+        </property>
+        <property name="format" type="string">
+            <column name="format" length="10" />
+        </property>
+        <property name="thumbMediaId" type="string">
+            <column name="thumb_media_id" length="45" />
+        </property>
+        <property name="locationX" type="string">
+            <column name="location_x" length="20" />
+        </property>
+        <property name="locationY" type="string">
+            <column name="location_y" length="20" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="1024" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="1024" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

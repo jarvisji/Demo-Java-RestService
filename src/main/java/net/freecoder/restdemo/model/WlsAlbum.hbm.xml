@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-6 10:17:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.freecoder.restdemo.model.WlsAlbum" table="wls_album">
+		<id name="id" type="string">
+			<column name="id" length="8" />
+			<generator class="assigned" />
+		</id>
+		<property name="albumCode" type="string">
+			<column name="album_code" length="6">
+				<comment>&#207;&#224;&#178;&#225;&#180;&#250;&#194;&#235;(&#177;&#163;&#193;&#244;&#163;&#172;&#212;&#221;&#178;&#187;&#202;&#185;&#211;&#195;)</comment>
+			</column>
+		</property>
+		<property name="albumName" type="string">
+			<column name="album_name" length="50">
+				<comment>&#207;&#224;&#178;&#225;&#195;&#251;&#179;&#198;</comment>
+			</column>
+		</property>
+		<property name="coverUrl" type="string">
+			<column name="cover_url" length="1024" />
+		</property>
+		<property name="parentId" type="string">
+			<column name="parent_id" length="8">
+				<comment>&#207;&#224;&#178;&#225;&#184;&#184;&#188;&#182;&#180;&#250;&#194;&#235;</comment>
+			</column>
+		</property>
+		<property name="isPin" type="java.lang.Boolean">
+			<column name="is_pin">
+				<comment>&#202;&#199;&#183;&#241;&#202;&#240;&#182;&#165;</comment>
+			</column>
+		</property>
+		<property name="description" type="string">
+			<column name="description" length="500">
+				<comment>&#207;&#224;&#178;&#225;&#195;&#232;&#202;&#246;</comment>
+			</column>
+		</property>
+		<property name="isPrivate" type="java.lang.Boolean">
+			<column name="is_private" />
+		</property>
+		<property name="wlsWxAccountId" type="string">
+			<column name="wls_wx_account_id" length="8" not-null="true">
+				<comment>&#185;&#171;&#214;&#218;&#186;&#197;ID</comment>
+			</column>
+		</property>
+		<property name="appCreateTime" type="timestamp">
+			<column name="app_create_time" length="19" />
+		</property>
+		<property name="appLastModifyTime" type="timestamp">
+			<column name="app_last_modify_time" length="19" />
+		</property>
+		<set name="wlsAlbumPhotos" table="wls_album_photo" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="album_id" length="8">
+					<comment>&#207;&#224;&#178;&#225;ID</comment>
+				</column>
+			</key>
+			<one-to-many class="net.freecoder.restdemo.model.WlsAlbumPhoto" />
+		</set>
+	</class>
+</hibernate-mapping>

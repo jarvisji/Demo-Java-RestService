@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-3 11:06:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsReplySubscribe" table="wls_reply_subscribe">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="materialId" type="string">
+            <column name="material_id" length="8" not-null="true" />
+        </property>
+        <property name="materialType" type="string">
+            <column name="material_type" length="45" not-null="true" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

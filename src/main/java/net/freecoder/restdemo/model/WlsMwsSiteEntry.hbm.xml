@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-27 11:30:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsMwsSiteEntry" table="wls_mws_site_entry">
+        <id name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="enable" type="boolean">
+            <column name="enable" not-null="true" />
+        </property>
+        <property name="keyword" type="string">
+            <column name="keyword" length="30" not-null="true" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="50" not-null="true" />
+        </property>
+        <property name="summary" type="string">
+            <column name="summary" length="100" />
+        </property>
+        <property name="coverUrl" type="string">
+            <column name="cover_url" length="1024" not-null="true" />
+        </property>
+        <property name="externalUrl" type="string">
+            <column name="external_url" length="1024" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

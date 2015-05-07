@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-15 0:24:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.emailengine.vo.EmailTaskHistory" table="zti_email_taskhistory">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="fromAddress" type="string">
+            <column name="fromAddress" length="254" />
+        </property>
+        <property name="templateId" type="string">
+            <column name="templateId" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status" />
+        </property>
+        <property name="errorMessage" type="string">
+            <column name="errorMessage" length="4000" />
+        </property>
+        <property name="retryTiems" type="java.lang.Short">
+            <column name="retryTiems" />
+        </property>
+        <property name="scheduledTime" type="timestamp">
+            <column name="scheduledTime" length="19" />
+        </property>
+        <property name="sentTime" type="timestamp">
+            <column name="sentTime" length="19" />
+        </property>
+        <property name="appCreatedTime" type="timestamp">
+            <column name="appCreatedTime" length="19" />
+        </property>
+        <one-to-one name="emailTaskAttrHistory" class="net.freecoder.emailengine.vo.EmailTaskAttrHistory"></one-to-one>
+    </class>
+</hibernate-mapping>

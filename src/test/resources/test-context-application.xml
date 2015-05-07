@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<!-- Scan @Repository annotated components, in this way needn't declare <bean> anymore -->
+	<context:component-scan base-package="net.freecoder.restdemo.service" />
+	<context:component-scan base-package="net.freecoder.restdemo.dao" />
+	<context:component-scan base-package="net.freecoder.emailengine.dao" />
+
+	<!-- Define manager for @Transactional annotation -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>/net/freecoder/restdemo/model/WlsActivity.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbum.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbumEntry.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbumPhoto.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsCityCode.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsLog.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialAudio.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialImage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialImagetext.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialMultiImagetext.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialText.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialVideo.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplyAuto.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplyKeyword.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplySubscribe.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopCategory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopConfig.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopEntry.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopItem.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopOrder.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopOrderItem.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopPromotionPoints.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopVip.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsSmsHistory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsTag.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsTagMaterial.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsUser.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsUserPay.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVip.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipAddress.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipPointsHistory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipStatistics.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxAccount.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxAccountExt.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxMenu.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxReceivedMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxRepliedMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMwsSiteConfig.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMwsSiteEntry.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTask.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskAttr.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskAttrHistory.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskHistory.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTemplate.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<jdbc:embedded-database id="dataSource" type="H2" />
+
+	<!-- form email engine -->
+	<bean id="emailEngine" class="net.freecoder.emailengine.EmailEngine">
+		<property name="emailService" ref="emailService"></property>
+		<property name="templateService" ref="templateService"></property>
+	</bean>
+	<bean id="templateService" class="net.freecoder.emailengine.impl.FtlFileTemplateServiceImpl">
+		<!-- Uncomment and set value to override default template path. -->
+		<!-- <property name="emailTemplatePath" value="" /> -->
+	</bean>
+	<bean id="emailService" class="net.freecoder.emailengine.impl.EmailServiceImpl">
+		<property name="defaultSender" value="noreply@freecoder.net"></property>
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="host" value="smtp.exmail.qq.com" />
+		<!-- <property name="port" value="${mail.port}" /> -->
+		<property name="username" value="noreply@freecoder.net" />
+		<property name="password" value="wlM@il3der" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="prop">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- for SMS -->
+	<bean id="smsTemplates" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:sms-templates.properties" />
+		<property name="fileEncoding" value="UTF-8" />
+	</bean>
+	<bean id="smsProvider" class="net.freecoder.restdemo.service.impl.YunSmsProvider">
+		<property name="uid" value="55577" />
+		<property name="pass" value="d0s9e0" />
+	</bean>
+</beans>

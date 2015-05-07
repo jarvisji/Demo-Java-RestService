@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-21 14:20:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.freecoder.restdemo.model.WlsUser" table="wls_user">
+		<id name="id" type="string">
+			<column name="id" length="8" />
+			<generator class="assigned" />
+		</id>
+		<property name="username" type="string">
+			<column name="username" length="100" />
+		</property>
+		<property name="password" type="string" update="false">
+			<column name="password" length="40" not-null="true" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" length="128" not-null="true" unique="true" />
+		</property>
+		<property name="avatar" type="string">
+			<column name="avatar" length="1024" />
+		</property>
+		<property name="weixin" type="string">
+			<column name="weixin" length="45" />
+		</property>
+		<property name="qq" type="string">
+			<column name="qq" length="100" />
+		</property>
+		<property name="mobilePhone" type="string">
+			<column name="mobile_phone" length="20" />
+		</property>
+		<property name="fullName" type="string">
+			<column name="full_name" length="100" />
+		</property>
+		<property name="cityCode" type="string">
+			<column name="city_code" length="6" />
+		</property>
+		<property name="industry" type="string">
+			<column name="industry" length="100" />
+		</property>
+		<property name="userType" type="string">
+			<column name="user_type" length="10" />
+		</property>
+		<property name="status" type="java.lang.Short">
+			<column name="status" />
+		</property>
+		<property name="lastLoginTime" type="timestamp">
+			<column name="last_login_time" length="19" />
+		</property>
+		<property name="lastLoginIp" type="string">
+			<column name="last_login_ip" length="45" />
+		</property>
+		<property name="lastLoginLocation" type="string">
+			<column name="last_login_location" length="100" />
+		</property>
+		<property name="appCreateTime" type="timestamp">
+			<column name="app_create_time" length="19" />
+		</property>
+		<property name="appLastModifyTime" type="timestamp">
+			<column name="app_last_modify_time" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

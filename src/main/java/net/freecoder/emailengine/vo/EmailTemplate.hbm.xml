@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-15 0:51:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.emailengine.vo.EmailTemplate" table="zti_email_template">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="short">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="subject" type="string">
+            <column name="subject" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="1000" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="deploymentId" type="java.lang.Integer">
+            <column name="deploymentId" />
+        </property>
+        <property name="appCreatedTime" type="timestamp">
+            <column name="appCreatedTime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

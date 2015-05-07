@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-9-28 16:02:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsUserPay" table="wls_user_pay">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="userid" type="string">
+            <column name="userid" length="8" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;ID</comment>
+            </column>
+        </property>
+        <property name="packageType" type="string">
+            <column name="package_type" length="256">
+                <comment>&#204;&#215;&#178;&#205;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="money" type="java.lang.Float">
+            <column name="money" precision="10">
+                <comment>&#189;&#201;&#183;&#209; &#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="paymentTerms" type="string">
+            <column name="payment_terms" length="20">
+                <comment>&#184;&#182;&#191;&#238;&#183;&#189;&#202;&#189;</comment>
+            </column>
+        </property>
+        <property name="paymentTime" type="timestamp">
+            <column name="payment_time" length="19">
+                <comment>&#189;&#201;&#183;&#209;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="serviceStatus" type="string">
+            <column name="service_status" length="20">
+                <comment>&#183;&#254;&#206;&#241;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="serviceDeadline" type="string">
+            <column name="service_deadline" length="20">
+                <comment>&#183;&#254;&#206;&#241;&#198;&#218;&#207;&#222;</comment>
+            </column>
+        </property>
+        <property name="serverStartTime" type="timestamp">
+            <column name="server_start_time" length="19">
+                <comment>&#183;&#254;&#206;&#241;&#198;&#240;&#202;&#188;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="serverStopTime" type="timestamp">
+            <column name="server_stop_time" length="19">
+                <comment>&#183;&#254;&#206;&#241;&#189;&#216;&#214;&#185;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="operatorId" type="string">
+            <column name="operator_id" length="8" not-null="true">
+                <comment>&#178;&#217;&#215;&#247;&#212;&#177;ID</comment>
+            </column>
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

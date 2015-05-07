@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-11-6 10:17:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsAlbumPhoto" table="wls_album_photo">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="wlsAlbum" class="net.freecoder.restdemo.model.WlsAlbum" fetch="select">
+            <column name="album_id" length="8">
+                <comment>&#207;&#224;&#178;&#225;ID</comment>
+            </column>
+        </many-to-one>
+        <property name="filename" type="string">
+            <column name="filename" length="50" not-null="true">
+                <comment>&#207;&#224;&#178;&#225;&#205;&#188;&#198;&#172;&#206;&#196;&#188;&#254;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="45">
+                <comment>&#207;&#224;&#178;&#225;&#205;&#188;&#198;&#172;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="size" type="java.lang.Short">
+            <column name="size" />
+        </property>
+        <property name="isPin" type="java.lang.Boolean">
+            <column name="is_pin" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

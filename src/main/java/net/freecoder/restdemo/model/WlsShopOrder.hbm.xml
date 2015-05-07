@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-8-7 11:13:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.freecoder.restdemo.model.WlsShopOrder" table="wls_shop_order">
+		<id name="id" type="string">
+			<column name="id" length="8" />
+			<generator class="assigned" />
+		</id>
+		<property name="no" type="string">
+			<column name="no" length="32" not-null="true" />
+		</property>
+		<property name="itemTotalCount" type="int">
+			<column name="item_total_count" not-null="true" />
+		</property>
+		<property name="itemTotalPrice" type="big_decimal">
+			<column name="item_total_price" precision="10" not-null="true" />
+		</property>
+		<property name="memo" type="string">
+			<column name="memo" length="1024" />
+		</property>
+		<property name="vipId" type="string">
+			<column name="vip_id" length="8" not-null="true" />
+		</property>
+		<property name="shippingAddress" type="string">
+			<column name="shipping_address" length="512" not-null="true" />
+		</property>
+		<property name="shippingName" type="string">
+			<column name="shipping_name" length="128" not-null="true" />
+		</property>
+		<property name="shippingPhone" type="string">
+			<column name="shipping_phone" length="20" not-null="true" />
+		</property>
+		<property name="shippingFee" type="big_decimal">
+			<column name="shipping_fee" precision="5" />
+		</property>
+		<property name="gainPoints" type="java.lang.Integer">
+			<column name="gain_points" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="32" not-null="true" />
+		</property>
+		<property name="statusDesc" type="string">
+			<column name="status_desc" length="200" />
+		</property>
+		<property name="payment" type="string">
+			<column name="payment" length="32" not-null="true" />
+		</property>
+		<property name="wlsWxAccountId" type="string">
+			<column name="wls_wx_account_id" length="8" not-null="true" />
+		</property>
+		<property name="appCreateTime" type="timestamp">
+			<column name="app_create_time" length="19" not-null="true" />
+		</property>
+		<property name="appLastModifyTime" type="timestamp">
+			<column name="app_last_modify_time" length="19" />
+		</property>
+		<set name="wlsShopOrderItems" table="wls_shop_order_item" inverse="true" lazy="false" fetch="select" cascade="all">
+			<key>
+				<column name="order_id" length="8" not-null="true" />
+			</key>
+			<one-to-many class="net.freecoder.restdemo.model.WlsShopOrderItem" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<import resource="classpath:context-application.xml" />
+	<!-- if remove the line, will get org.hibernate.HibernateException: No Hibernate Session bound to thread, and configuration 
+		does not allow creation of non-transactional one here -->
+	<import resource="classpath:context-persistence.xml" />
+	<import resource="classpath:context-emailengine.xml" />
+
+	<!-- Static resources handler, tell DispatcherServlet to ignore these resources. -->
+	<!-- <mvc:resources mapping="/images/**" location="/images/" /> -->
+
+	<!-- Register some handler mappings for Spring MVC. -->
+	<mvc:annotation-driven />
+
+	<!-- Scan @Controller annotated components, in this way needn't declare <bean> anymore -->
+	<context:component-scan base-package="net.freecoder.restdemo">
+		<context:include-filter type="regex" expression=".controller.*" />
+	</context:component-scan>
+
+</beans>

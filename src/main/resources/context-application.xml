@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:systemconf.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+	</bean>
+
+	<!-- The following demostrated a way to load properties, the value can be inject to class by @Value -->
+	<util:properties id="sysconfProperties" location="classpath:systemconf.properties" />
+
+	<!-- Scan components annotated with @Repository, @Service, @Controller, etc , in this way needn't declare <bean> anymore -->
+	<context:component-scan base-package="net.freecoder.restdemo" />
+
+
+	<!-- for SMS -->
+	<bean id="smsProvider" class="net.freecoder.restdemo.service.impl.YunSmsProvider">
+		<property name="uid" value="55577" />
+		<property name="pass" value="d0s9e0" />
+	</bean>
+	<!-- The following demostrated another way to load properties, the value can be inject to class by @Autowired -->
+	<bean id="smsTemplates" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:sms-templates.properties" />
+		<property name="fileEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="controllerPrivilegeValidator" class="net.freecoder.restdemo.aop.ControllerPrivilegeValidator" />
+	<aop:config>
+		<aop:aspect ref="controllerPrivilegeValidator">
+			<!-- <aop:around pointcut="@annotation(wlsModule)" method="validate" arg-names="joinPoint, wlsModule" /> -->
+			<aop:around
+				pointcut="within(net.freecoder.restdemo.controller.*) and @annotation(org.springframework.web.bind.annotation.RequestMapping)"
+				method="validateClass" arg-names="joinPoint" />
+		</aop:aspect>
+	</aop:config>
+
+	<!-- The proxy for @Aspectj annotations <aop:aspectj-autoproxy /> <bean class="net.freecoder.restdemo.aop.CredValidator" 
+		/> -->
+</beans>

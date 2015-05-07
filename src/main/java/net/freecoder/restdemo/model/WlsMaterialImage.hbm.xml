@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-21 14:20:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsMaterialImage" table="wls_material_image">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="fileName" type="string">
+            <column name="file_name" length="128" not-null="true" />
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="image_url" length="1024" not-null="true" />
+        </property>
+        <property name="thumbUrl" type="string">
+            <column name="thumb_url" length="1024" />
+        </property>
+        <property name="size" type="java.lang.Integer">
+            <column name="size" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

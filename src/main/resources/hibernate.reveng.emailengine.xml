@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="zti_email_task"></table-filter>
+	<table-filter match-name="zti_email_taskattributes"></table-filter>
+	<table-filter match-name="zti_email_taskattributeshistory"></table-filter>
+	<table-filter match-name="zti_email_taskhistory"></table-filter>
+	<table-filter match-name="zti_email_template"></table-filter>
+	<table name="zti_email_task" class="net.freecoder.emailengine.vo.EmailTask">
+		<column name="id"></column>
+		<column name="fromAddress"></column>
+		<column name="templateId"></column>
+		<column name="status"></column>
+		<column name="errorMessage"></column>
+		<column name="retryTimes"></column>
+		<column name="scheduledTime"></column>
+		<column name="createdTime"></column>
+	</table>
+	<table name="zti_email_taskattributeshistory" class="net.freecoder.emailengine.vo.EmailTaskAttrHistory">
+		<column name="taskid"></column>
+		<column name="attrname"></column>
+		<column name="attrvalue"></column>
+		<column name="createdTime"></column>
+	</table>
+	<table name="zti_email_taskattributes" class="net.freecoder.emailengine.vo.EmailTaskAttr">
+		<column name="taskId"></column>
+		<column name="attrname"></column>
+		<column name="attrvalue"></column>
+		<column name="createdTime"></column>
+	</table>
+	<table name="zti_email_template" class="net.freecoder.emailengine.vo.EmailTemplate">
+		<column name="id"></column>
+		<column name="key"></column>
+		<column name="subject"></column>
+		<column name="description"></column>
+		<column name="content"></column>
+		<column name="version"></column>
+		<column name="deploymentId"></column>
+		<column name="createdTime"></column>
+	</table>
+	<table name="zti_email_taskhistory" class="net.freecoder.emailengine.vo.EmailTaskHistory">
+		<column name="id"></column>
+		<column name="fromAddress"></column>
+		<column name="templateId"></column>
+		<column name="status"></column>
+		<column name="errorMessage"></column>
+		<column name="retryTiems"></column>
+		<column name="scheduledTime"></column>
+		<column name="sentTime"></column>
+		<column name="createdTime"></column>
+	</table>
+</hibernate-reverse-engineering>

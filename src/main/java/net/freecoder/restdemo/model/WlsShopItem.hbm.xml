@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-1 15:23:02 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.freecoder.restdemo.model.WlsShopItem" table="wls_shop_item">
+		<id name="id" type="string">
+			<column name="id" length="8" />
+			<generator class="assigned" />
+		</id>
+		<property name="categoryId" type="string">
+			<column name="category_id" length="8" not-null="true" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" length="256" not-null="true" />
+		</property>
+		<property name="brief" type="string">
+			<column name="brief" length="256" />
+		</property>
+		<property name="picUrl" type="string">
+			<column name="pic_url" length="1024" />
+		</property>
+		<property name="detail" type="string">
+			<column name="detail" length="65535" />
+		</property>
+		<property name="detailEnabled" type="java.lang.Boolean">
+			<column name="detail_enabled" />
+		</property>
+		<property name="price" type="big_decimal">
+			<column name="price" precision="10" not-null="true" />
+		</property>
+		<property name="originalPrice" type="big_decimal">
+			<column name="original_price" precision="10" />
+		</property>
+		<property name="inventory" type="int">
+			<column name="inventory" not-null="true" />
+		</property>
+		<property name="isInSell" type="boolean">
+			<column name="is_in_sell" not-null="true" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="32" />
+		</property>
+		<property name="spec" type="string">
+			<column name="spec" length="128" />
+		</property>
+		<property name="wlsWxAccountId" type="string">
+			<column name="wls_wx_account_id" length="8" not-null="true" />
+		</property>
+		<property name="appCreateTime" type="timestamp">
+			<column name="app_create_time" length="19" not-null="true" />
+		</property>
+		<property name="appLastModifyTime" type="timestamp">
+			<column name="app_last_modify_time" length="19" />
+		</property>
+	</class>
+</hibernate-mapping>

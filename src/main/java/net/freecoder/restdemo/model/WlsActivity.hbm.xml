@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-8-3 12:10:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsActivity" table="wls_activity">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="module" type="string">
+            <column name="module" length="36" not-null="true" />
+        </property>
+        <property name="initiator" type="string">
+            <column name="initiator" length="45" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="45" not-null="true" />
+        </property>
+        <property name="value" type="string">
+            <column name="value" length="45" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" not-null="true" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

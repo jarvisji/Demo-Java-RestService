@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="RESTDEMO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- default output location is {tomcat_home}/bin -->
+		<file>${log.path}restdemo.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${log.path}RESTDEMO.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder charset="UTF-8">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- <logger name="net.freecoder" level="DEBUG"> <appender-ref ref="WL_DEBUG_ZTI" /> </logger> -->
+
+	<root level="debug">
+		<appender-ref ref="RESTDEMO" />
+	</root>
+</configuration>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Handle exception for @Repository annotated classes -->
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<!-- Define manager for @Transactional annotation -->
+	<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> <property name="dataSource" 
+		ref="dataSource" /> </bean> -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<property name="targetDataSource">
+			<bean class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+				<property name="driverClass" value="${jdbc.driver}" />
+				<property name="jdbcUrl" value="${jdbc.url}" />
+				<property name="user" value="${jdbc.username}"></property>
+				<property name="password" value="${jdbc.password}"></property>
+				<property name="maxPoolSize" value="10" />
+				<property name="minPoolSize" value="1" />
+				<property name="initialPoolSize" value="1" />
+				<property name="maxIdleTime" value="20" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- The following sessionFactory works with "packageToScan" property. -->
+		<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"> -->
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>/net/freecoder/restdemo/model/WlsActivity.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbum.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbumEntry.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsAlbumPhoto.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsCityCode.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsLog.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialAudio.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialImage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialImagetext.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialMultiImagetext.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialText.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMaterialVideo.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplyAuto.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplyKeyword.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsReplySubscribe.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopCategory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopConfig.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopEntry.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopItem.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopOrder.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopOrderItem.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopPromotionPoints.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsShopVip.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsSmsHistory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsTag.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsTagMaterial.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsUser.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsUserPay.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVip.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipAddress.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipPointsHistory.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsVipStatistics.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxAccount.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxAccountExt.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxMenu.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxReceivedMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsWxRepliedMessage.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMwsSiteConfig.hbm.xml</value>
+				<value>/net/freecoder/restdemo/model/WlsMwsSiteEntry.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTask.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskAttr.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskAttrHistory.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTaskHistory.hbm.xml</value>
+				<value>/net/freecoder/emailengine/vo/EmailTemplate.hbm.xml</value>
+			</list>
+		</property>
+		<!-- Scan @Entity annotated classes. -->
+		<!-- <property name="packagesToScan" value="net.freecoder.restdemo.model" /> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<!-- <prop key="hibernate.show_sql">true</prop> -->
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

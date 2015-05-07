@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/restdemo</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.default_catalog">restdemo</property>
+		<!-- <property name="hibernate.default_schema">restdemo</property> -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<mapping resource="net/freecoder/restdemo/model/WlsActivity.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsCityCode.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsLog.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialAudio.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialImage.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialImagetext.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialMultiImagetext.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialText.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMaterialVideo.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsReplyAuto.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsReplyKeyword.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsReplySubscribe.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopCategory.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopConfig.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopEntry.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopItem.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopOrder.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopOrderItem.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopPromotionPoints.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsShopVip.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsSmsHistory.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsTag.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsTagMaterial.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsUser.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsUserPay.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsVip.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsVipAddress.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsVipPointsHistory.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsVipStatistics.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxAccount.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxAccountExt.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxMenu.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxMessage.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxReceivedMessage.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsWxRepliedMessage.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMwsSiteConfig.hbm.xml" />
+		<mapping resource="net/freecoder/restdemo/model/WlsMwsSiteEntry.hbm.xml" />
+		<mapping resource="net/freecoder/emailengine/vo/EmailTask.hbm.xml" />
+		<mapping resource="net/freecoder/emailengine/vo/EmailTaskAttr.hbm.xml" />
+		<mapping resource="net/freecoder/emailengine/vo/EmailTaskAttrHistory.hbm.xml" />
+		<mapping resource="net/freecoder/emailengine/vo/EmailTaskHistory.hbm.xml" />
+		<mapping resource="net/freecoder/emailengine/vo/EmailTemplate.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

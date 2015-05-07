@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-8-7 11:13:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsShopOrderItem" table="wls_shop_order_item">
+        <composite-id name="id" class="net.freecoder.restdemo.model.WlsShopOrderItemId">
+            <key-property name="orderId" type="string">
+                <column name="order_id" length="8" />
+            </key-property>
+            <key-property name="itemId" type="string">
+                <column name="item_id" length="8" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="wlsShopOrder" class="net.freecoder.restdemo.model.WlsShopOrder" update="false" insert="false" fetch="select">
+            <column name="order_id" length="8" not-null="true" />
+        </many-to-one>
+        <property name="itemName" type="string">
+            <column name="item_name" length="256" />
+        </property>
+        <property name="itemPrice" type="big_decimal">
+            <column name="item_price" precision="10" not-null="true" />
+        </property>
+        <property name="itemCount" type="int">
+            <column name="item_count" not-null="true" />
+        </property>
+        <property name="source" type="string">
+            <column name="source" length="32" not-null="true" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" not-null="true" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

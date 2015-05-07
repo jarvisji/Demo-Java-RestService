@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-9-28 16:02:23 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsLog" table="wls_log">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="tableName" type="string">
+            <column name="table_name" length="50" not-null="true">
+                <comment>&#177;&#237;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="tableRowId" type="string">
+            <column name="table_row_id" length="8" not-null="true">
+                <comment>&#177;&#237;&#196;&#218;&#214;&#247;&#188;&#252;ID</comment>
+            </column>
+        </property>
+        <property name="oldValue" type="string">
+            <column name="old_value" length="1024">
+                <comment>&#212;&#173;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="newValue" type="string">
+            <column name="new_value" length="1024">
+                <comment>&#208;&#194;&#214;&#181;&#163;&#186;&#208;&#222;&#184;&#196;&#186;&#243;&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+        <property name="operatorId" type="string">
+            <column name="operator_id" length="50">
+                <comment>&#208;&#222;&#184;&#196;&#200;&#203;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

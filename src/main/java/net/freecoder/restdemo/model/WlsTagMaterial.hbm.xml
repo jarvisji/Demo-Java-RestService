@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-23 12:46:25 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsTagMaterial" table="wls_tag_material">
+        <composite-id name="id" class="net.freecoder.restdemo.model.WlsTagMaterialId">
+            <key-property name="tagId" type="string">
+                <column name="tag_id" length="8" />
+            </key-property>
+            <key-property name="materialId" type="string">
+                <column name="material_id" length="8" />
+            </key-property>
+        </composite-id>
+        <property name="materialType" type="string">
+            <column name="material_type" length="45" not-null="true" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

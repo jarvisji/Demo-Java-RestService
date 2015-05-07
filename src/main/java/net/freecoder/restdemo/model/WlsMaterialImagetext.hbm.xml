@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-20 19:46:40 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.restdemo.model.WlsMaterialImagetext" table="wls_material_imagetext">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="wlsMaterialMultiImagetext" class="net.freecoder.restdemo.model.WlsMaterialMultiImagetext" fetch="select">
+            <column name="wls_material_multi_imagetext_id" length="8" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="title" length="100" not-null="true" />
+        </property>
+        <property name="author" type="string">
+            <column name="author" length="45" />
+        </property>
+        <property name="summary" type="string">
+            <column name="summary" length="200" not-null="true" />
+        </property>
+        <property name="coverUrl" type="string">
+            <column name="cover_url" length="1024" not-null="true" />
+        </property>
+        <property name="isCoverInContent" type="java.lang.Boolean">
+            <column name="is_cover_in_content" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="externalUrl" type="string">
+            <column name="external_url" length="1024" />
+        </property>
+        <property name="appCreateTime" type="timestamp">
+            <column name="app_create_time" length="19" />
+        </property>
+        <property name="appLastModifyTime" type="timestamp">
+            <column name="app_last_modify_time" length="19" />
+        </property>
+        <property name="wlsWxAccountId" type="string">
+            <column name="wls_wx_account_id" length="8" not-null="true" />
+        </property>
+        <property name="positionInMulti" type="java.lang.Short">
+            <column name="position_in_multi" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-15 0:24:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="net.freecoder.emailengine.vo.EmailTaskAttr" table="zti_email_taskattributes" dynamic-update="true">
+        <id name="id" type="string">
+            <column name="id" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="emailTask" class="net.freecoder.emailengine.vo.EmailTask" fetch="select">
+            <column name="emailTaskId" length="36" not-null="true" />
+        </many-to-one>
+        <property name="attrname" type="string">
+            <column name="attrname" length="200" not-null="true" />
+        </property>
+        <property name="attrvalue" type="string">
+            <column name="attrvalue" length="4000" />
+        </property>
+    </class>
+</hibernate-mapping>
