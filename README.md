@@ -1,6 +1,6 @@
 # Demo-Java-RestService
 
-This is one of my historical project, not in maintian now, just for reference, and demo my experience.
+This is one of my historical project, not in maintain now, just for reference, and demo my experience.
 
 This project is built by Java + Spring + Hibernate. It exposes RESTful APIs to front-end.
 
