@@ -77,3 +77,4 @@ target/classes/net/freecoder/restdemo/model/WlsWxMessage.hbm.xml
 target/classes/net/freecoder/restdemo/model/WlsWxReceivedMessage.hbm.xml
 target/classes/net/freecoder/restdemo/model/WlsWxRepliedMessage.hbm.xml
 target/test-classes/test-context-application.xml
+.vscode/settings.json
